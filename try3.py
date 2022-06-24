@@ -1,9 +1,9 @@
 
 
-# first = input("First number: ")
-# second = input("Second number: ")
-# product = int(first) * int(second)
-# print("Sum: " + str(product))
+first = input("First number: ")
+second = input("Second number: ")
+product = int(first) * int(second)
+print("Sum: " + str(product))
 
 
 

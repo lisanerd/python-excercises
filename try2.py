@@ -1,20 +1,4 @@
 
-# for i in range(4):
-#     print(i)
-
-
-# people = ["Lisa", "Maya", "Gael", "Adeline"]
-
-# i = 0
-# for p in people:
-#     print("Hi " + p)
-#     print(f"The custumer id of {p} is {i}")
-#     i += 1
-
-# for j,p in enumerate(people):
-#     print(f"The custumer id of {p} is {j}") 
-
-
 def number_contains(number:int, digit_to_find:int):
     #     "2"  in  "126"
     if str(digit_to_find) in str(number):
