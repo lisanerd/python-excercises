@@ -32,5 +32,5 @@ for i in range(2, 1000):
     ret = is_prime(i)
     print(f"{i} is prime: {ret}" )
 
-print(len(str(35742549198872617291353508656626642567)))
-is_prime(35742549198872617291353508656626642567)
+print(len(str(10)))
+is_prime(10)
