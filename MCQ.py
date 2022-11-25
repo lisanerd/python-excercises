@@ -17,12 +17,14 @@ def math_question():
         answer = random_number_1 * random_number_2
     
 
-    question = f'''Q) What is {random_number_1} {random_sign} {random_number_2} ?'''
+    question = f'''Q) What is {random_number_1} {random_sign} {random_number_2}?'''
     return question, answer
 
 class Test:
     def __init__(self, nbr_questions: int) -> None:
         self.question_list = [math_question() for _ in range(nbr_questions)]
+        self.score: int = 0
+        self.wrong_answers = []
 
     def start(self):
         total_points = 0
@@ -32,9 +34,17 @@ class Test:
 
             if answer == u_a:
                 total_points += 1
+            else:
+                self.wrong_answers.append([question, answer])
 
-        final_score = (total_points/5) * 100
-        print(f'Your final score is {str(final_score)}%')
+        self.final_score = (total_points/5) * 100
+
+    def debrief(self):
+        print(f'Your final score is {str(self.final_score)}%')
+        print("You got these questions wrong: ")
+        for question, answer in self.wrong_answers:
+            print(f"The answer of the question {question} was {answer}.")
+        
 
     def ask_the_user(self):
         user_answer = input("Enter your answer here: ")
@@ -43,7 +53,9 @@ class Test:
         except:
             print("This is not a number you poopyhead.")
             return self.ask_the_user()
+        
 
 
 my_test = Test(nbr_questions=5)
 my_test.start()
+my_test.debrief()
