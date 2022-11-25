@@ -35,15 +35,15 @@ class Test:
             if answer == u_a:
                 total_points += 1
             else:
-                self.wrong_answers.append([question, answer])
+                self.wrong_answers.append([question, answer, u_a])
 
         self.final_score = (total_points/5) * 100
 
     def debrief(self):
         print(f'Your final score is {str(self.final_score)}%')
         print("You got these questions wrong: ")
-        for question, answer in self.wrong_answers:
-            print(f"The answer of the question {question} was {answer}.")
+        for question, answer, u_a in self.wrong_answers:
+            print(f"For the question {question}, you answered {u_a}, but the correct answer was {answer}.")
         
 
     def ask_the_user(self):
