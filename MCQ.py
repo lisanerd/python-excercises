@@ -20,21 +20,30 @@ def math_question():
     question = f'''Q) What is {random_number_1} {random_sign} {random_number_2} ?'''
     return question, answer
 
+class Test:
+    def __init__(self, nbr_questions: int) -> None:
+        self.question_list = [math_question() for _ in range(nbr_questions)]
 
-question_list = [math_question(), math_question(), math_question(), math_question(), math_question()]
+    def start(self):
+        total_points = 0
+        for question, answer in self.question_list:
+            print(question)
+            u_a = self.ask_the_user()
 
-def ask_the_user():
-    while True:
+            if answer == u_a:
+                total_points += 1
+
+        final_score = (total_points/5) * 100
+        print(f'Your final score is {str(final_score)}%')
+
+    def ask_the_user(self):
         user_answer = input("Enter your answer here: ")
-        return int(user_answer)
-        
-total_points = 0
-for question, answer in question_list:
-    print(question)
-    u_a = ask_the_user()
+        try:
+            return int(user_answer)
+        except:
+            print("This is not a number you poopyhead.")
+            return self.ask_the_user()
 
-    if answer == u_a:
-        total_points += 1
 
-final_score = (total_points/5) * 100
-print(f'Your final score is {str(final_score)}%')
+my_test = Test(nbr_questions=5)
+my_test.start()
